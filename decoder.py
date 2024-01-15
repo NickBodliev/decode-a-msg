@@ -1,6 +1,5 @@
-data = {}
-
-def decode(message_file):
+def extract_data(message_file):
+	data = {}
 	with open(message_file, 'r') as file:
 		for line in file.readlines():
 			# Split each line into words
@@ -12,8 +11,12 @@ def decode(message_file):
 
 			# Populate the dictionary
 			data[number] = string_data
+	return data
 
-	return data[158]
+def decode(message_file):
+	dict = extract_data(message_file)
+
+	return dict[158]
 
 file_path = 'coding_qual_input.txt'
 decoded_message = decode(file_path)
