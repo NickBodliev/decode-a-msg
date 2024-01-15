@@ -36,8 +36,8 @@ def decode(message_file):
 	sequence = create_sequence(highest_key)
 	words = words_from_sequence(dict, sequence)
 	
-
-	return words
+	sentence = ' '.join(words)
+	return sentence
 
 file_path = 'coding_qual_input.txt'
 decoded_message = decode(file_path)
