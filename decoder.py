@@ -23,13 +23,21 @@ def create_sequence(highest_value):
 		increment += 1
 	return sequence
 
+def words_from_sequence(dict, sequence):
+	words = []
+	for num in sequence:
+		words.append(dict[num])
+	return words
+
 def decode(message_file):
 	dict = extract_data(message_file)
 	highest_key = int(max(dict.keys()))
 
 	sequence = create_sequence(highest_key)
+	words = words_from_sequence(dict, sequence)
+	
 
-	return sequence
+	return words
 
 file_path = 'coding_qual_input.txt'
 decoded_message = decode(file_path)
