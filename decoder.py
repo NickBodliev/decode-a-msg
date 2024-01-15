@@ -13,10 +13,23 @@ def extract_data(message_file):
 			data[number] = string_data
 	return data
 
+def create_sequence(highest_value):
+	sequence = []
+	decode_index = 1
+	increment = 2
+	while decode_index < highest_value:
+		sequence.append(decode_index)
+		decode_index += increment
+		increment += 1
+	return sequence
+
 def decode(message_file):
 	dict = extract_data(message_file)
+	highest_key = int(max(dict.keys()))
 
-	return dict[158]
+	sequence = create_sequence(highest_key)
+
+	return sequence
 
 file_path = 'coding_qual_input.txt'
 decoded_message = decode(file_path)
